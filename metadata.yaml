@@ -28,8 +28,8 @@ creator:
     url: http://www.gutenberg.org/2009/agents/85
     wikipedia: http://en.wikipedia.org/wiki/Victor_Hugo
 gutenberg_bookshelf:
-- Historical Fiction
 - Banned Books from Anne Haight's list
+- Historical Fiction
 gutenberg_issued: '2008-06-22'
 gutenberg_type: Text
 identifiers:
@@ -39,11 +39,11 @@ publisher: Project Gutenberg
 rights: Public domain in the USA.
 rights_url: http://creativecommons.org/about/pdm
 subjects:
-- '!lcsh:Ex-convicts -- Fiction'
-- '!lcsh:Paris (France) -- Fiction'
-- '!lcc:PQ'
-- '!lcsh:Epic literature'
-- '!lcsh:Orphans -- Fiction'
-- '!lcsh:Historical fiction'
+- '!lcsh: Ex-convicts -- Fiction'
+- '!lcsh: Historical fiction'
+- '!lcc: PQ'
+- '!lcsh: Paris (France) -- Fiction'
+- '!lcsh: Orphans -- Fiction'
+- '!lcsh: Epic literature'
 title: Les Misérables
 url: http://www.gutenberg.org/ebooks/135
