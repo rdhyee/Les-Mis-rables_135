@@ -10,10 +10,6 @@ contributor:
     url: http://www.gutenberg.org/2009/agents/33608
     wikipedia: http://en.wikipedia.org/wiki/Isabel_Florence_Hapgood
 covers:
-- cover_type: archival
-  image_path: 135/135-h/images/1coverTH.jpg
-  rights: Public domain in the USA.
-  rights_url: http://creativecommons.org/about/pdm
 - attribution: Jon Cain, 2015
   cover_type: original
   image_path: cover.jpg
