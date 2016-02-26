@@ -1,5 +1,5 @@
 _repo: Les-Mis-rables_135
-_version: 0.0.3
+_version: 0.1.0
 alternative_title: Les Miserables
 contributor:
   translator:
@@ -43,5 +43,6 @@ subjects:
 - '!lcsh: Paris (France) -- Fiction'
 - '!lcsh: Orphans -- Fiction'
 - '!lcsh: Epic literature'
+- GITenberg
 title: Les Misérables
 url: http://www.gutenberg.org/ebooks/135
