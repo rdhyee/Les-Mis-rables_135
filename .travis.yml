@@ -21,13 +21,15 @@ script:
 - /usr/bin/python asciidoctor-htmlbook/gitberg-machine/machine.py -o . -m metadata.yaml book.html
 - xsltproc -stringparam external.assets.list " " ./HTMLBook/htmlbook-xsl/epub.xsl book.html
 - cp ./HTMLBook/stylesheets/epub/epub.css OEBPS
-- cp cover.jpg OEBPS/cover.jpg
+- if [ -e cover.jpg ]; then cp cover.jpg OEBPS/cover.jpg; fi
 # look for first images directory and one found, copy over to ./OEBPS
 - find . -name images -type d | head -n 1 | xargs -I {} mv {} ./OEBPS/
 - zip -rX book.epub mimetype
 - zip -rX book.epub OEBPS/ META-INF/
 - if test -d "OEBPS/images/"; then zip -rX book.epub OEBPS/images/ ;fi
 - mv book.epub Les-Miserables.epub
+- ebook-convert Les-Miserables.epub Les-Miserables.mobi
+- xvfb-run ebook-convert Les-Miserables.epub Les-Miserables.pdf
 branches:
   only:
   - master
@@ -43,10 +45,15 @@ deploy:
   provider: releases
   api_key:
     secure: Ou5nSO64LUwA9ZbFSANsimJ7/RkRraSR9QZT7MiMWvBUI1LZTpR/lIZuc2K/vrQ4gydsuYliSYWeVG28ypsddWnm/pqFu1oxch/MQHvt0+pgyaorKAe5j+ssq9Aa29Ect1J6amQr9TVS0RZBh8xTzT7Oz8vwjXFcoqeYalxYXwwC3Q4FaEGmjk5Ll37ZevqBt2PVqq1qKsDjrFX+H2ZB+J4KShNzXL6sWXvrIIzuyNJ7xn2EyvlZIqu8+hASgCoKpcD53l4l9rpwEBsLhvrUqYNYsEMkxf/uxgLXI9pQKU1pqc6mKRz2zQJO7IfK4N6Bo0tEH4puIERh696h2dJQ1LA5KDoesRswU03uuHpX8hAqDguzhKT2iPLlGZg6HGNh0MA/WQsyOJo52d5B5QGhsoFX3oxvKmN6qwlyaA8jFTWPWOiV5m3Rs3q0doDELma5zQMPa7pqgnprKn2pdHJjfhHPYjriEZhRjTdiA/I2XeQwSmRFAAyH8MT672kKYNr1yjDQ7M7it1j9sJK8zAir9oZhDIIMV9rSRm28nWxhqjvpbGqCk6TvB/zZTbRIOl9av2ovzx8T4SllCkVImfP++CGNz+KWayYmYxaSIfYssGCu8WTtzLGlbfXrgtTwTgc0SF+7jibLaUlnPZpWOpQ9NrQ1aORR6OFydDl5+q0MFDE=
-  file: Les-Miserables.epub
+  file:
+    - Les-Miserables.epub
+    - Les-Miserables.mobi
+    - Les-Miserables.pdf
   "on":
     repo: GITenberg/Les-Mis-rables_135
 addons:
   apt:
     packages:
     - xsltproc
+    - xvfb
+    - calibre
